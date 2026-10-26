@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f1e5">
+  <meta name="description" content="鎌足まつり2026｜11月14日（土）11:00〜17:00、大阪府茨木市・桑原山地福寺で開催。テーマは『鎌足さんとホッと一息』。お寺で味わう、食べる・遊ぶ・くつろぐ秋の一日。入場無料。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="鎌足まつり2026｜鎌足さんとホッと一息">
+  <meta property="og:description" content="2026年11月14日（土）11:00〜17:00｜茨木市・桑原山地福寺｜入場無料">
+  <title>鎌足まつり2026｜鎌足さんとホッと一息</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ==============================================================
+       鎌足まつり2026 試作LP / GitHub Pages用1ファイル版
+       基本の色・文字サイズはこの :root で調整できます。
+       ============================================================= */
+    :root {
+      --paper: #f7f1e5;
+      --paper-light: #fffaf0;
+      --paper-mid: #ece5d6;
+      --ink: #302d25;
+      --ink-soft: #625e52;
+      --rust: #a64a32;
+      --rust-dark: #803c2c;
+      --ochre: #d2a252;
+      --pine: #355147;
+      --pine-deep: #243c33;
+      --line: #d9cfbc;
+      --white: #fffefa;
+      --serif: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+      --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      --latin: 'DM Sans', Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 94px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.95; -webkit-font-smoothing: antialiased; }
+    img, svg { max-width: 100%; }
+    a { color: inherit; text-underline-offset: 4px; }
+    a:focus-visible { outline: 3px solid var(--ochre); outline-offset: 4px; border-radius: 3px; }
+    button { font: inherit; }
+    ::selection { background: #e9bb80; color: #272722; }
+    .wrap { width: min(1160px, calc(100% - 72px)); margin-inline: auto; }
+    .skip { position: absolute; left: 12px; top: -100px; z-index: 99; padding: 8px 20px; background: white; }
+    .skip:focus { top: 12px; }
+    .preview-notice { background: var(--pine-deep); color: #fff9ee; font-size: 11px; font-weight: 600; letter-spacing: .055em; line-height: 1.5; text-align: center; padding: 8px 16px; }
+    .site-header { position: sticky; top: 0; z-index: 50; background: rgba(247,241,229,.96); border-bottom: 1px solid rgba(89,80,61,.15); backdrop-filter: blur(13px); }
+    .nav-inner { min-height: 75px; display: flex; align-items: center; gap: 24px; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+    .brand-mark { display: grid; place-items: center; width: 40px; height: 40px; border: 1.5px solid var(--rust); border-radius: 50%; color: var(--rust); font-family: var(--serif); font-weight: 800; font-size: 21px; line-height: 1; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.2; gap: 3px; }
+    .brand-text strong { font-family: var(--serif); font-size: 15px; letter-spacing: .08em; }
+    .brand-text small { font-family: var(--latin); letter-spacing: .15em; font-size: 8.5px; font-weight: 700; color: var(--rust); }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: end; align-items: center; gap: 25px; }
+    .nav-links a { text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: .05em; white-space: nowrap; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--rust); }
+    .nav-links .nav-cta { border: 1px solid var(--rust); border-radius: 100px; padding: 8px 18px; color: var(--rust); }
+    .nav-links .nav-cta:hover { background: var(--rust); color: white; }
+    .hero { position: relative; overflow: hidden; isolation: isolate; padding: 84px 0 75px; }
+    .hero::before { content: ''; position: absolute; top: 3%; left: -75px; width: 260px; height: 260px; border-radius: 50%; background: #f1e4cd; opacity: .5; z-index: -1; }
+    .hero-grid { display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 30px; }
+    .hero-copy { position: relative; z-index: 1; padding-bottom: 3px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 800; color: var(--rust); }
+    .eyebrow::before { content: ''; display: block; width: 26px; height: 1px; background: currentColor; }
+    .hero-lead { margin: 19px 0 10px; font: 500 clamp(14px, 1.5vw, 18px)/1.7 var(--serif); letter-spacing: .25em; }
+    .hero h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(45px, 5.25vw, 76px); line-height: 1.29; letter-spacing: .04em; margin: 0; text-wrap: nowrap; }
+    .hero h1 .large-year { font-family: var(--latin); font-weight: 600; font-size: .48em; margin-left: .17em; vertical-align: 5%; letter-spacing: .015em; color: var(--rust); }
+    .hero-theme { margin: 26px 0 16px; font-family: var(--serif); font-weight: 700; color: var(--rust); font-size: clamp(21px, 2.25vw, 30px); line-height: 1.7; letter-spacing: .09em; }
+    .hero-summary { color: var(--ink-soft); max-width: 450px; font-size: 14px; line-height: 2.1; margin: 0 0 28px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 29px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 13px; text-decoration: none; border-radius: 100px; padding: 12px 25px; min-height: 50px; font-size: 13px; font-weight: 800; letter-spacing: .04em; border: 1px solid transparent; transition: transform .2s, background .2s, color .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--rust); color: #fff9ee; }
+    .button.primary:hover { background: var(--rust-dark); }
+    .button.secondary { border-color: #b7ab97; background: #fffaf3; }
+    .button.secondary:hover { background: #ede3d1; }
+    .button .arr { font-size: 17px; font-weight: 400; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 17px; align-items: center; color: var(--ink-soft); font-size: 12px; font-weight: 700; }
+    .hero-meta strong { color: var(--pine); font-size: 13px; }
+    .hero-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--ochre); }
+    .hero-art { position: relative; }
+    .hero-art svg { width: 100%; height: auto; display: block; }
+    .art-caption { position: absolute; bottom: 12px; right: 0; font-family: var(--serif); font-size: 12px; letter-spacing: .3em; writing-mode: vertical-rl; color: var(--pine); }
+    .date-band { background: var(--pine); color: #fff9e9; }
+    .date-inner { display: grid; grid-template-columns: 1.15fr 1.08fr .85fr; min-height: 130px; }
+    .date-item { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 25px 13px; }
+    .date-item + .date-item { border-left: 1px solid rgba(255,255,255,.2); }
+    .date-item .number { font-family: var(--latin); font-size: clamp(25px, 2.8vw, 39px); line-height: 1.1; letter-spacing: -.045em; font-weight: 500; white-space: nowrap; }
+    .date-item .number span { font-size: .48em; vertical-align: 10%; letter-spacing: .02em; }
+    .date-item .sub { font-size: 11px; letter-spacing: .13em; line-height: 1.8; color: #eee3ce; }
+    section { scroll-margin-top: 100px; }
+    .section { padding: 106px 0; }
+    .section-eyebrow { display: flex; gap: 10px; align-items: center; margin: 0 0 12px; color: var(--rust); letter-spacing: .22em; font: 700 11px/1.5 var(--latin); }
+    .section-eyebrow .line { width: 22px; height: 1px; background: currentColor; }
+    .section-title { font-family: var(--serif); font-size: clamp(29px, 3.3vw, 42px); letter-spacing: .07em; line-height: 1.6; font-weight: 700; margin: 0 0 16px; }
+    .section-heading-p { color: var(--ink-soft); margin: 0; max-width: 580px; font-size: 14px; }
+    .intro-layout { display: grid; grid-template-columns: .84fr 1.16fr; gap: 11%; align-items: center; }
+    .vertical-letter { font-family: var(--serif); color: var(--pine); display: flex; align-items: center; justify-content: center; position: relative; min-height: 370px; background: #eee5d2; border: 1px solid #e2d7be; border-radius: 48% 48% 9px 9px / 41% 41% 9px 9px; }
+    .vertical-letter::before, .vertical-letter::after { content: ''; position: absolute; border: 1px solid rgba(76,87,70,.3); border-radius: inherit; inset: 12px; pointer-events:none; }
+    .vertical-letter .inner { text-align: center; display: flex; flex-direction: column; gap: 16px; align-items: center; }
+    .vertical-letter .stamp { border: 1.5px solid var(--rust); padding: 6px 9px; color: var(--rust); line-height: 1.35; font-size: 12px; letter-spacing: .16em; writing-mode: vertical-rl; }
+    .vertical-letter strong { font-size: clamp(24px, 3vw, 37px); line-height: 1.75; letter-spacing: .21em; }
+    .vertical-letter small { color: var(--ink-soft); font-size: 10px; letter-spacing: .28em; }
+    .intro-copy p { font-size: 14px; color: #514e45; margin: 0 0 22px; }
+    .intro-copy p strong { color: var(--ink); }
+    .soft-highlight { display: inline; box-shadow: inset 0 -7px 0 #e6d9bf; }
+    .outline-link { display: inline-flex; align-items: center; gap: 16px; font-size: 12px; color: var(--pine); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--pine); padding: 0 0 5px; margin-top: 2px; }
+    .program-section { background: var(--paper-light); border-block: 1px solid #eae1d0; }
+    .program-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 34px; }
+    .mini-note { font-size: 12px; color: var(--ink-soft); }
+    .program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .program-card { background: #fffefa; border: 1px solid #e9e0d1; border-radius: 12px; overflow: hidden; box-shadow: 0 14px 32px rgba(66,50,23,.04); }
+    .program-card.wide { grid-column: 1 / -1; }
+    .program-card .top { display: flex; align-items: center; gap: 16px; padding: 25px 30px 18px; border-bottom: 1px solid #eee5d7; }
+    .program-icon { background: #f2e6d1; color: var(--rust); width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font: 600 22px var(--serif); flex-shrink: 0; }
+    .program-card:nth-child(2) .program-icon { color: var(--pine); background: #e3e9df; }
+    .program-card:nth-child(3) .program-icon { color: #9c6b28; background: #f4eddb; }
+    .program-card .top small { font: 700 10px var(--latin); letter-spacing: .2em; color: var(--rust); display: block; }
+    .program-card .top h3 { font: 700 21px/1.6 var(--serif); letter-spacing: .06em; margin: 1px 0 0; }
+    .program-list { padding: 7px 28px 22px; }
+    .program-row { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 14px 2px; border-bottom: 1px dashed #e5dac9; }
+    .program-row:last-child { border-bottom: 0; }
+    .program-row strong { font-weight: 700; font-size: 13px; line-height: 1.65; }
+    .program-row .by { color: #777060; font-size: 11px; line-height: 1.65; }
+    .program-row .by span { color: var(--rust); }
+    .badge-pending { font-size: 10px; font-weight: 700; border: 1px solid #b9aa91; color: #756b5b; border-radius: 3px; padding: 2px 5px; margin-left: 7px; vertical-align: 2px; white-space: nowrap; }
+    .wide-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 42px; }
+    .section-footnote { margin: 25px 0 0; font-size: 11px; color: var(--ink-soft); }
+    .schedule-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 10%; }
+    .schedule-aside { position: sticky; top: 130px; align-self: start; }
+    .schedule-aside .quote { margin-top: 36px; padding: 27px 24px; background: #e9dfcc; border-radius: 10px; font-family: var(--serif); color: var(--pine); font-size: 17px; font-weight: 600; line-height: 2.1; letter-spacing: .08em; }
+    .timeline { position: relative; margin: 9px 0 0 2px; }
+    .timeline::before { content:''; position: absolute; left: 72px; top: 15px; bottom: 25px; width: 1px; background: #cbbba1; }
+    .time-item { display: grid; grid-template-columns: 73px 1fr; gap: 28px; position: relative; padding: 0 0 36px; }
+    .time-item:last-child { padding-bottom: 0; }
+    .time-num { font: 600 20px/1.65 var(--latin); letter-spacing: -.02em; color: var(--rust); }
+    .time-item .pin { position: absolute; top: 13px; left: 68px; width: 9px; height: 9px; border-radius: 50%; background: var(--rust); box-shadow: 0 0 0 5px var(--paper); }
+    .time-info { padding-top: 3px; }
+    .time-info strong { font-size: 16px; font-weight: 700; }
+    .time-info p { font-size: 12px; color: var(--ink-soft); margin: 4px 0 0; }
+    .running-tag { display: inline-block; background: #e1e9df; color: var(--pine); padding: 3px 9px; font-size: 10px; border-radius: 4px; font-weight: 700; margin-top: 9px; }
+    .history-section { background: var(--pine-deep); color: #f9f0de; position: relative; overflow: hidden; }
+    .history-section::after { content: '鎌'; position: absolute; bottom: -165px; right: -40px; font: 800 390px/1 var(--serif); opacity: .042; pointer-events: none; }
+    .history-section .section-eyebrow { color: #e4b78a; }
+    .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11%; align-items: center; position: relative; z-index: 1; }
+    .history-visual { min-height: 405px; border: 1px solid rgba(255,243,212,.4); border-radius: 190px 190px 6px 6px; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 36px; background: radial-gradient(circle at 50% 45%, #486357, transparent 62%), #2c483e; text-align: center; }
+    .history-visual::before { content: ''; position: absolute; inset: 12px; border-radius: inherit; border: 1px solid rgba(255,243,212,.19); }
+    .history-visual .fine { font: 500 11px var(--latin); letter-spacing: .27em; color: #e5d9be; }
+    .history-visual .big { margin: 20px 0; font: 700 clamp(27px, 3vw, 42px)/1.8 var(--serif); letter-spacing: .22em; }
+    .history-visual .divider { width: 45px; height: 1px; background: var(--ochre); }
+    .history-visual .small { margin-top: 19px; font: 500 12px/2.1 var(--serif); letter-spacing: .17em; }
+    .history-text .section-title { margin-bottom: 25px; }
+    .history-text p { color: #e8e0d0; font-size: 13px; line-height: 2.25; margin: 0 0 16px; }
+    .history-text .outline-link { color: #f0c7a5; border-color: #f0c7a5; margin-top: 11px; }
+    .summary-section { background: var(--paper-light); }
+    .summary-box { margin-top: 32px; border-top: 2px solid var(--ink); display: grid; grid-template-columns: repeat(2, 1fr); }
+    .summary-cell { display: grid; grid-template-columns: 97px 1fr; align-items: start; padding: 21px 14px 21px 0; border-bottom: 1px solid #ddd3c1; gap: 12px; font-size: 13px; }
+    .summary-cell:nth-child(even) { padding-left: 23px; }
+    .summary-cell dt { color: var(--ink-soft); font-size: 11px; font-weight: 700; }
+    .summary-cell dd { margin: 0; font-weight: 700; line-height: 1.8; }
+    .summary-cell dd small { color: var(--ink-soft); display:block; font-size: 11px; font-weight: 400; }
+    .access-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 8%; align-items: start; }
+    .access-card { background: #e8dcc7; border-radius: 12px; padding: 39px 31px; position: relative; min-height: 420px; overflow: hidden; }
+    .access-card::before { content: ''; position: absolute; right: -92px; top: -85px; border: 1px solid #cfc0a7; border-radius: 50%; width: 260px; height: 260px; }
+    .access-card .place-en { font: 600 11px var(--latin); letter-spacing: .24em; color: var(--rust); }
+    .access-card h3 { font: 700 37px/1.4 var(--serif); letter-spacing: .1em; margin: 24px 0 4px; }
+    .access-card .place-roman { color: #847a6a; font: 500 12px var(--latin); letter-spacing: .2em; }
+    .access-card address { font-size: 13px; font-style: normal; margin: 52px 0 20px; font-weight: 600; }
+    .access-card .button { position: relative; z-index: 1; }
+    .access-data h3 { font-family: var(--serif); font-size: 19px; margin: 0 0 16px; }
+    .access-data .transport-group { padding-bottom: 24px; margin-bottom: 25px; border-bottom: 1px solid var(--line); }
+    .access-data ul { margin: 0; padding-left: 1.25em; color: #5c584d; font-size: 13px; }
+    .access-data li { padding: 3px 0; }
+    .access-data .warning { font-size: 12px; padding: 14px 16px; background: #f1e6d3; border-left: 3px solid var(--rust); margin: 22px 0 0; color: #625743; }
+    .cautions { background: #eee5d5; padding: 72px 0; }
+    .caution-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 9%; }
+    .caution-list { margin: 0; padding: 0; list-style: none; }
+    .caution-list li { display: flex; gap: 16px; padding: 0 0 18px; font-size: 13px; color: #4f4b40; }
+    .caution-list li + li { border-top: 1px solid #d8cbb7; padding-top: 18px; }
+    .caution-list .no { font: 700 13px var(--latin); color: var(--rust); flex: none; }
+    .contact { background: #f5e9d7; text-align: center; padding: 94px 0; }
+    .contact .section-eyebrow { justify-content: center; }
+    .contact .section-title { margin-bottom: 10px; }
+    .contact > .wrap > p { font-size: 13px; color: var(--ink-soft); }
+    .contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin: 26px auto 30px; }
+    .contact-details { display: flex; justify-content: center; gap: 18px 28px; flex-wrap: wrap; font-size: 12px; }
+    .contact-details a { text-decoration: none; font-weight: 700; color: var(--pine); }
+    .contact-details a:hover { text-decoration: underline; }
+    .contact-detail-label { font-size: 10px; color: #8c806d; display:block; }
+    footer { background: var(--pine-deep); color: #ecdfc7; padding: 40px 0 24px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; padding-bottom: 34px; }
+    .footer-brand { font: 700 21px var(--serif); letter-spacing: .12em; }
+    .footer-brand small { display: block; margin-top: 4px; font: 500 10px var(--latin); letter-spacing: .23em; }
+    .footer-links { display: flex; gap: 14px 21px; flex-wrap: wrap; }
+    .footer-links a { color: #ecdfc7; text-decoration: none; font-size: 12px; }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-base { border-top: 1px solid rgba(255,255,255,.17); padding-top: 19px; display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; color:#c8bfae; font-size:10px; line-height:1.7; }
+    .notice-inline { color: var(--rust); font-weight:700; }
+    @media (max-width: 1050px) {
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 11px; }
+      .hero h1 { font-size: clamp(39px, 5vw, 64px); }
+      .hero-grid { gap: 8px; }
+      .hero-theme { font-size: 24px; }
+    }
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 130px; }
+      .wrap { width: min(100% - 38px, 580px); }
+      .nav-inner { min-height: 68px; flex-wrap: wrap; gap: 0; padding: 11px 0 0; }
+      .brand { padding-bottom: 10px; }
+      .brand-mark { width: 33px; height: 33px; font-size: 18px; }
+      .brand-text strong { font-size: 13px; }
+      .nav-links { width: 100%; overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; scrollbar-width: none; gap: 21px; padding: 8px 0 11px; }
+      .nav-links::-webkit-scrollbar { display:none; }
+      .nav-links a { font-size: 11px; }
+      .nav-links .nav-cta { border: none; padding: 0; }
+      .hero { padding: 52px 0 50px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 2px; }
+      .hero-lead { font-size: 13px; }
+      .hero h1 { font-size: clamp(38px, 9.7vw, 57px); }
+      .hero-theme { font-size: clamp(20px, 5.7vw, 26px); margin: 21px 0 12px; }
+      .hero-summary { font-size: 13px; }
+      .hero-actions { margin-bottom: 22px; }
+      .hero-actions .button { min-height:48px; padding:11px 17px; font-size:12px; gap:9px; }
+      .hero-art { width: min(520px, 100%); margin: -4px auto 0; }
+      .art-caption { right: 2px; bottom: 0; font-size: 10px; }
+      .date-inner { grid-template-columns: 1fr 1fr; }
+      .date-item { padding: 20px 7px; gap: 8px; text-align: center; flex-direction: column; }
+      .date-item:first-child { grid-column: span 2; border-bottom: 1px solid rgba(255,255,255,.2); flex-direction: column; gap: 4px; }
+      .date-item:nth-child(3) { border-left: 1px solid rgba(255,255,255,.2); }
+      .date-item .number { font-size: 30px; }
+      .date-item:nth-child(2) .number { font-size: 21px; }
+      .date-item:first-child .number { font-size: 34px; }
+      .date-item .sub { font-size: 10px; }
+      .section { padding: 70px 0; }
+      .section-title { font-size: 29px; }
+      .intro-layout, .history-grid, .schedule-layout, .access-grid, .caution-grid { grid-template-columns: 1fr; gap: 38px; }
+      .vertical-letter { min-height: 260px; max-width: 400px; width: 100%; justify-self: center; }
+      .vertical-letter .inner { gap: 7px; }
+      .vertical-letter strong { font-size: 27px; }
+      .program-head { display: block; }
+      .mini-note { margin-top: 14px; }
+      .program-grid { grid-template-columns: 1fr; gap: 17px; }
+      .program-card.wide { grid-column: auto; }
+      .wide-list { grid-template-columns: 1fr; }
+      .program-card .top { padding: 20px 19px 15px; }
+      .program-list { padding: 5px 19px 14px; }
+      .schedule-aside { position: static; }
+      .schedule-aside .quote { margin-top: 20px; }
+      .timeline::before { left: 67px; }
+      .time-item { grid-template-columns: 68px 1fr; gap: 25px; }
+      .time-item .pin { left: 63px; }
+      .history-grid { gap: 40px; }
+      .history-visual { min-height: 290px; max-width: 440px; width: 100%; justify-self: center; }
+      .history-visual .big { font-size: 29px; margin: 9px 0; }
+      .summary-box { grid-template-columns: 1fr; }
+      .summary-cell:nth-child(even) { padding-left: 0; }
+      .access-card { min-height: 325px; padding: 29px 26px; }
+      .access-card address { margin-top: 34px; }
+      .cautions { padding: 64px 0; }
+      .contact { padding: 75px 0; }
+      .footer-top { align-items: start; }
+      .footer-links { gap: 10px 18px; }
+    }
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 35px; }
+      .hero-actions .button { padding-inline: 17px; }
+      .hero-meta { gap: 7px; }
+      .hero-meta strong { font-size: 11px; }
+      .section-title { font-size: 26px; }
+      .summary-cell { grid-template-columns: 85px 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button, .nav-links a { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <!-- 練習版であることを明示。正式公開するときは次の1行を削除できます。 -->
+  <div class="preview-notice">このページは公開練習用の試作版です。イベント内容は変更になる場合があります。</div>
+  <header class="site-header">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="鎌足まつり2026 ホームへ">
+        <span class="brand-mark" aria-hidden="true">鎌</span>
+        <span class="brand-text"><strong>鎌足まつり2026</strong><small>KAMATARI MATSURI</small></span>
+      </a>
+      <nav class="nav-links" aria-label="メインメニュー">
+        <a href="#about">おまつりについて</a>
+        <a href="#contents">たのしみ</a>
+        <a href="#schedule">時間案内</a>
+        <a href="#history">地福寺と鎌足</a>
+        <a class="nav-cta" href="#access">会場アクセス ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">IBARAKI, OSAKA / AUTUMN FESTIVAL</div>
+          <p class="hero-lead">お寺で過ごす、秋のひととき。</p>
+          <h1 id="hero-title">鎌足まつり<span class="large-year">2026</span></h1>
+          <p class="hero-theme">鎌足さんと、ホッと一息。</p>
+          <p class="hero-summary">食べて、遊んで、歴史にふれて。<br>いつもの日常から少し離れて、<br>茨木・桑原のお寺で、思い思いの時間を。</p>
+          <div class="hero-actions">
+            <a href="#contents" class="button primary">おまつりをのぞく <span class="arr" aria-hidden="true">↗</span></a>
+            <a href="#access" class="button secondary">行き方を見る <span class="arr" aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-meta"><strong>11.14 SAT</strong><span class="dot"></span><strong>11:00—17:00</strong><span class="dot"></span><span>入場無料 / 一部有料</span></div>
+        </div>
+        <!-- 地福寺の写真ではなく、秋のお寺をイメージしたオリジナル装飾イラストです -->
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 580 600" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+            <defs>
+              <pattern id="grain" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="1" cy="2" r=".65" fill="#78512d" opacity=".11"/></pattern>
+              <clipPath id="cl"><circle cx="287" cy="280" r="246"/></clipPath>
+            </defs>
+            <circle cx="287" cy="280" r="246" fill="#DBBB85"/>
+            <g clip-path="url(#cl)">
+              <path d="M-5 346C103 286 178 310 269 330C394 363 490 282 587 330V550H0L-5 346Z" fill="#CBA976"/>
+              <path d="M-4 400C109 361 197 395 288 395C397 395 506 347 585 368V565H-4V400Z" fill="#B98F62"/>
+              <circle cx="361" cy="193" r="85" fill="#F8E7BC"/>
+              <path d="M36 240C99 210 132 234 201 205" stroke="#F8E7BC" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+              <path d="M352 99C407 83 441 89 478 102" stroke="#FFF4DE" stroke-width="2" opacity=".6"/>
+              <path d="M32 172C83 147 114 163 139 156" stroke="#F9E5BE" stroke-width="2" opacity=".7"/>
+              <!-- tree / tree leaves -->
+              <path d="M113 423L99 265M98 333L62 305M105 348L147 315" stroke="#533F31" stroke-width="10" stroke-linecap="round"/>
+              <circle cx="79" cy="262" r="47" fill="#9D4B37"/>
+              <circle cx="132" cy="257" r="50" fill="#BC633F"/>
+              <circle cx="105" cy="215" r="44" fill="#CE7945"/>
+              <circle cx="68" cy="303" r="30" fill="#AD5939"/>
+              <circle cx="152" cy="304" r="34" fill="#A14A33"/>
+              <path d="M474 469L482 277M480 348L448 318M479 360L514 325" stroke="#543F30" stroke-width="9" stroke-linecap="round"/>
+              <circle cx="466" cy="268" r="40" fill="#C27042"/>
+              <circle cx="502" cy="274" r="38" fill="#D9955B"/>
+              <circle cx="478" cy="236" r="40" fill="#CB854C"/>
+              <circle cx="449" cy="303" r="30" fill="#D39053"/>
+              <circle cx="518" cy="314" r="28" fill="#B9643E"/>
+              <!-- temple as stylized silhouette -->
+              <rect x="163" y="359" width="252" height="145" fill="#EAD6AC"/>
+              <rect x="171" y="353" width="237" height="153" fill="#F7E5C4"/>
+              <rect x="186" y="363" width="18" height="133" fill="#69483A"/>
+              <rect x="273" y="367" width="17" height="130" fill="#69483A"/>
+              <rect x="372" y="363" width="18" height="133" fill="#69483A"/>
+              <rect x="216" y="388" width="47" height="105" fill="#9A7355"/>
+              <rect x="302" y="388" width="60" height="105" fill="#9A7355"/>
+              <path d="M216 388H362M239 388V493M332 388V493" stroke="#E0BF91" stroke-width="4"/>
+              <path d="M131 350L190 290H385L445 350L430 367H145L131 350Z" fill="#443D36"/>
+              <path d="M164 345L200 302H378L411 345" stroke="#8B6550" stroke-width="4"/>
+              <path d="M151 347H425" stroke="#C48B59" stroke-width="5"/>
+              <path d="M210 294L236 271H349L378 294" stroke="#443D36" stroke-width="13" stroke-linecap="square"/>
+              <path d="M192 289H391" stroke="#DDBA83" stroke-width="5"/>
+              <path d="M154 507H428" stroke="#4A4A3D" stroke-width="18"/>
+              <path d="M138 518H443" stroke="#9A7B58" stroke-width="16"/>
+              <path d="M117 534H465" stroke="#EADAB9" stroke-width="13"/>
+              <!-- lanterns -->
+              <path d="M185 359V375M390 359V375" stroke="#493C31" stroke-width="3"/>
+              <rect x="176" y="372" width="18" height="30" rx="7" fill="#B65235"/>
+              <path d="M180 373V402M190 373V402" stroke="#F1BF87" stroke-width="1.3"/>
+              <rect x="381" y="372" width="18" height="30" rx="7" fill="#B65235"/>
+              <path d="M385 373V402M395 373V402" stroke="#F1BF87" stroke-width="1.3"/>
+              <!-- grass -->
+              <path d="M15 523C110 488 160 532 273 521C362 512 436 499 563 526V587H0L15 523Z" fill="#527164"/>
+              <path d="M42 535C144 513 200 554 293 537C400 519 487 522 558 535" stroke="#A0AD81" stroke-width="3" opacity=".5"/>
+              <!-- foreground fallen leaves -->
+              <path d="M84 499C88 491 95 490 100 498C99 506 90 509 84 499ZM457 495C459 487 469 486 474 494C469 502 463 503 457 495ZM409 548C417 541 427 544 430 553C423 559 414 556 409 548Z" fill="#E6B86E"/>
+            </g>
+            <circle cx="287" cy="280" r="246" stroke="#906C42" stroke-width="1.4" opacity=".4"/>
+            <circle cx="287" cy="280" r="246" fill="url(#grain)"/>
+            <!-- small floating paper tag -->
+            <g transform="translate(38 65) rotate(-11)">
+              <rect width="143" height="70" rx="4" fill="#FBF2DF" stroke="#A98A62"/>
+              <text x="71.5" y="27" text-anchor="middle" fill="#925039" font-size="10" letter-spacing="2.5" font-family="serif">2026年11月14日</text>
+              <text x="71.5" y="51" text-anchor="middle" fill="#3D4F40" font-size="16" font-weight="bold" letter-spacing="2" font-family="serif">地福寺にて</text>
+            </g>
+            <g transform="translate(423 58) rotate(12)"><path d="M13 3C42-8 45 22 18 38C6 29-3 17 13 3Z" fill="#B6673F"/><path d="M17 37L28 2" stroke="#F3CC9B" stroke-width="1.5"/></g>
+            <g transform="translate(499 444) rotate(-19)"><path d="M17 3C45-7 48 28 16 49C4 37-7 16 17 3Z" fill="#BA6942"/><path d="M17 47L24 4" stroke="#F4D4AC" stroke-width="1.5"/></g>
+            <g transform="translate(74 475) rotate(12)"><path d="M15 4C38-7 49 24 15 42C-1 28-1 12 15 4Z" fill="#D59C58"/><path d="M15 41L23 3" stroke="#F4D4AC" stroke-width="1.5"/></g>
+          </svg>
+          <div class="art-caption">秋の桑原で、お待ちしています。</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="date-band" aria-label="開催概要の要約">
+      <div class="wrap date-inner">
+        <div class="date-item"><div class="number">2026.11.14<span> SAT</span></div><div class="sub">2026年11月14日（土）<br>秋の一日をお寺で</div></div>
+        <div class="date-item"><div class="number">11:00 <span>—</span> 17:00</div><div class="sub">開催時間</div></div>
+        <div class="date-item"><div class="number" style="font-family:var(--serif);font-size:27px;letter-spacing:.07em">入場無料</div><div class="sub">※ブースごとに料金あり</div></div>
+      </div>
+    </div>
+
+    <section class="section" id="about">
+      <div class="wrap intro-layout">
+        <div class="vertical-letter" aria-hidden="true">
+          <div class="inner"><span class="stamp">第六回</span><strong>ほっと、<br>お寺日和。</strong><small>LET'S TAKE IT SLOW.</small></div>
+        </div>
+        <div class="intro-copy">
+          <p class="section-eyebrow"><span class="line"></span> ABOUT THE FESTIVAL</p>
+          <h2 class="section-title">ちょっと立ち寄って、<br>ちょっと長居したくなる。</h2>
+          <p>鎌足まつりは、地域にゆかりのある藤原鎌足を身近に感じながら、<strong>お寺で食べたり、遊んだり、くつろいだり</strong>できる秋のおまつりです。</p>
+          <p>今年で6年目。テーマは、<strong class="soft-highlight">「鎌足さんとホッと一息」</strong>。子どもも大人も、地域の人も、初めて訪れる人も。それぞれのペースで楽しめる一日をつくります。</p>
+          <p>普段は少し遠く感じるお寺の時間が、暮らしのすぐそばに。そんな出会いを地福寺でお楽しみください。</p>
+          <a href="#history" class="outline-link">地福寺と鎌足について知る <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section program-section" id="contents">
+      <div class="wrap">
+        <div class="program-head">
+          <div><p class="section-eyebrow"><span class="line"></span> WHAT TO ENJOY</p><h2 class="section-title">何して過ごそう？</h2><p class="section-heading-p">おいしいもの、夢中になる遊び、みんなで楽しむステージ。<br>境内を歩きながら、自分だけのお気に入りを見つけてください。</p></div>
+          <p class="mini-note">※内容は変更になる場合があります。</p>
+        </div>
+        <div class="program-grid">
+          <article class="program-card">
+            <div class="top"><div class="program-icon" aria-hidden="true">食</div><div><small>FOOD & DRINK</small><h3>たべもの・のみもの</h3></div></div>
+            <div class="program-list">
+              <div class="program-row"><strong>コーヒー ＆ ラム酒パウンドケーキ</strong><span class="by">ひのでキッチン / @hinode_kitchen</span></div>
+              <div class="program-row"><strong>わたがし</strong><span class="by">地福寺 / @sougenzan_jifukuji</span></div>
+              <div class="program-row"><strong>フランクフルト</strong><span class="by">てらふる大阪 / @teraful_osaka</span></div>
+              <div class="program-row"><strong>おでん</strong><span class="by">てらふる大阪</span></div>
+              <div class="program-row"><strong>やきそば</strong><span class="by">てらふる大阪</span></div>
+              <div class="program-row"><strong>ラムネドリンク</strong><span class="by">地福寺</span></div>
+              <div class="program-row"><strong>ココア</strong><span class="by">てらふる大阪</span></div>
+              <div class="program-row"><strong>オリジナルドリンク <span class="badge-pending">調整中</span></strong><span class="by">てらふる大阪</span></div>
+            </div>
+          </article>
+          <article class="program-card">
+            <div class="top"><div class="program-icon" aria-hidden="true">遊</div><div><small>WORKSHOP & PLAY</small><h3>あそび・体験</h3></div></div>
+            <div class="program-list">
+              <div class="program-row"><strong>すごく走るスーパーカーを作ろう</strong><span class="by">任意団体そぼろ / @soboro.space</span></div>
+              <div class="program-row"><strong>紙コップロケット飛ばし大作戦</strong><span class="by">任意団体そぼろ / @soboro.space</span></div>
+              <div class="program-row"><strong>射的</strong><span class="by">てらふる大阪</span></div>
+              <div class="program-row"><strong>木に親しむ・遊ぶ体験</strong><span class="by">てらふる大阪 / 協力：@kizuki_color</span></div>
+              <div class="program-row"><strong>その他ミニゲーム</strong><span class="by">てらふる大阪</span></div>
+            </div>
+          </article>
+          <article class="program-card wide">
+            <div class="top"><div class="program-icon" aria-hidden="true">集</div><div><small>STAGE & COMMUNITY</small><h3>ステージ・交流</h3></div></div>
+            <div class="program-list wide-list">
+              <div class="program-row"><strong>クイズ ＆ 謎解きゲーム</strong><span class="by"><span>12:00〜12:30 / 16:00〜16:30</span>　実行委員会</span></div>
+              <div class="program-row"><strong>オープンラジオブース</strong><span class="by"><span>11:00〜17:00</span>　実行委員会</span></div>
+            </div>
+          </article>
+        </div>
+        <p class="section-footnote">※「オリジナルドリンク」は調整中です。出店・プログラムの詳細や価格は、確定次第ご案内します。飲酒を伴う商品の提供内容についても各ブースの案内をご確認ください。</p>
+      </div>
+    </section>
+
+    <section class="section" id="schedule">
+      <div class="wrap schedule-layout">
+        <div class="schedule-aside">
+          <p class="section-eyebrow"><span class="line"></span> TIMETABLE</p>
+          <h2 class="section-title">一日の過ごし方</h2>
+          <p class="section-heading-p">お目当てのプログラムを楽しむのも、ふらっと境内を歩くのも。お寺の時間を自由にどうぞ。</p>
+          <div class="quote">急がなくても、大丈夫。<br>ここでは、いつもより<br>少しゆっくり。</div>
+        </div>
+        <div class="timeline" aria-label="イベントタイムテーブル">
+          <div class="time-item"><div class="time-num">11:00</div><span class="pin" aria-hidden="true"></span><div class="time-info"><strong>鎌足まつり OPEN</strong><p>食べもの・遊びのブースがスタート。</p><span class="running-tag">オープンラジオ 11:00〜17:00</span></div></div>
+          <div class="time-item"><div class="time-num">12:00</div><span class="pin" aria-hidden="true"></span><div class="time-info"><strong>クイズ ＆ 謎解きゲーム</strong><p>第1回 / 12:00〜12:30</p></div></div>
+          <div class="time-item"><div class="time-num">16:00</div><span class="pin" aria-hidden="true"></span><div class="time-info"><strong>クイズ ＆ 謎解きゲーム</strong><p>第2回 / 16:00〜16:30</p></div></div>
+          <div class="time-item"><div class="time-num">17:00</div><span class="pin" aria-hidden="true"></span><div class="time-info"><strong>鎌足まつり CLOSE</strong><p>またお寺で、お会いしましょう。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section history-section" id="history">
+      <div class="wrap history-grid">
+        <div class="history-visual" aria-hidden="true"><span class="fine">JIFUKUJI TEMPLE</span><div class="big">千年をこえて、<br>つながる場所。</div><span class="divider"></span><div class="small">藤原鎌足ゆかりの地<br>大阪・茨木　桑原山地福寺</div></div>
+        <div class="history-text">
+          <p class="section-eyebrow"><span class="line"></span> HISTORY & CULTURE</p>
+          <h2 class="section-title">鎌足さんと地福寺</h2>
+          <p>地福寺は、飛鳥時代に活躍した藤原鎌足が建立したと伝わる寺院です。鎌足の念持仏と同じ千手観音の像や、鎌足の木像など、ゆかりの寺宝が受け継がれています。</p>
+          <p>鎌足と息子の定慧・不比等を描いた「大織冠像」も、この地の歴史を伝える文化財のひとつ。地福寺や大念寺などに伝わる鎌足信仰は、地域で長く育まれてきました。</p>
+          <p>鎌足まつりは、そんな歴史を知る入口でもあります。むずかしく考えず、まずは気軽に地福寺へ。</p>
+          <a class="outline-link" href="https://www.jifukuji.com/" target="_blank" rel="noopener noreferrer">地福寺の公式サイトを見る <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section summary-section" id="outline">
+      <div class="wrap">
+        <p class="section-eyebrow"><span class="line"></span> EVENT INFORMATION</p>
+        <h2 class="section-title">開催概要</h2>
+        <dl class="summary-box">
+          <div class="summary-cell"><dt>イベント名</dt><dd>鎌足まつり2026</dd></div>
+          <div class="summary-cell"><dt>テーマ</dt><dd>鎌足さんとホッと一息</dd></div>
+          <div class="summary-cell"><dt>開催日</dt><dd>2026年11月14日（土）</dd></div>
+          <div class="summary-cell"><dt>開催時間</dt><dd>11:00〜17:00</dd></div>
+          <div class="summary-cell"><dt>会場</dt><dd>浄土宗 桑原山 地福寺<small>大阪府茨木市桑原33-15</small></dd></div>
+          <div class="summary-cell"><dt>入場料</dt><dd>無料<small>各ブースでは別途料金が発生します。</small></dd></div>
+          <div class="summary-cell" style="grid-column:1/-1"><dt>主催</dt><dd>鎌足まつり実行委員会<small>地福寺、学生団体てらふる大阪、TERAFUL、その他協力団体</small></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="access">
+      <div class="wrap">
+        <p class="section-eyebrow"><span class="line"></span> ACCESS</p>
+        <h2 class="section-title" style="margin-bottom:36px">地福寺への行き方</h2>
+        <div class="access-grid">
+          <div class="access-card">
+            <div class="place-en">VENUE</div>
+            <h3>桑原山<br>地福寺</h3>
+            <span class="place-roman">JIFUKUJI TEMPLE</span>
+            <address>〒568-0094<br>大阪府茨木市桑原33-15</address>
+            <a class="button primary" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%9C%B0%E7%A6%8F%E5%AF%BA%20%E5%A4%A7%E9%98%AA%E5%BA%9C%E8%8C%A8%E6%9C%A8%E5%B8%82%E6%A1%91%E5%8E%9F33-15" target="_blank" rel="noopener noreferrer">Google マップで見る <span class="arr" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="access-data">
+            <div class="transport-group"><h3>バスでお越しの方</h3><ul><li>阪急バス77・88・89系統「桑原橋」停留所より徒歩約10分</li><li>阪急バス88・89系統「奥垣内」停留所より徒歩約1分</li></ul></div>
+            <div class="transport-group"><h3>お車・自転車でお越しの方</h3><p style="font-size:13px;color:var(--ink-soft);margin:-3px 0 10px">境内に数台分の駐車スペースと自転車駐輪スペースがあります。近隣の無料駐車場もご案内しています。</p><ul><li><strong>桑原ふれあい運動広場</strong><br>利用時間 9:00〜17:00 / 地福寺から徒歩約3分</li><li><strong>ダムパークいばきた 風の丘ゾーン</strong><br>利用時間 10:00〜17:00 / 地福寺から徒歩約7分</li></ul><p class="warning">会場・周辺の駐車台数には限りがあります。できるだけバスや自転車でお越しください。また、案内の駐車場はいずれも17:00までのため、出庫時間にもご注意ください。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cautions" aria-labelledby="cautions-title">
+      <div class="wrap caution-grid">
+        <div><p class="section-eyebrow"><span class="line"></span> FOR VISITORS</p><h2 class="section-title" id="cautions-title">ご来場の皆さまへ</h2></div>
+        <ol class="caution-list">
+          <li><span class="no">01</span><span>できるだけ公共交通機関または自転車をご利用ください。お車でのご来場も可能ですが、駐車できる台数には限りがあります。</span></li>
+          <li><span class="no">02</span><span>ペット同伴での境内への入場はご遠慮ください。ペットをお連れの場合は、会場スタッフの案内に従ってください。</span></li>
+          <li><span class="no">03</span><span>境内には立ち入り禁止エリアや壊れやすいものがあります。建物・寺宝を傷つけるおそれのある行動はお控えください。</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <p class="section-eyebrow"><span class="line"></span> CONTACT</p>
+        <h2 class="section-title">秋のお寺で、お会いしましょう。</h2>
+        <p>イベントに関するお問い合わせは、鎌足まつり実行委員会まで。</p>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:terafuru.0123@gmail.com?subject=%E9%8E%8C%E8%B6%B3%E3%81%BE%E3%81%A4%E3%82%8A2026%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E3%81%8A%E5%95%8F%E5%90%88%E3%81%9B">メールで問い合わせる <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="https://www.instagram.com/teraful_osaka/" target="_blank" rel="noopener noreferrer">Instagramを見る <span class="arr" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="contact-details">
+          <div><span class="contact-detail-label">実行委員会</span><a href="tel:09073570750">090-7357-0750</a></div>
+          <div><span class="contact-detail-label">てらふる大阪のリンク集</span><a href="https://lit.link/terafulibaraki" target="_blank" rel="noopener noreferrer">lit.link/terafulibaraki ↗</a></div>
+          <div><span class="contact-detail-label">地福寺</span><a href="tel:0726436212">072-643-6212</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">鎌足まつり2026 <small>KAMATARI MATSURI 2026</small></div>
+        <div class="footer-links"><a href="#about">おまつりについて</a><a href="#contents">たのしみ</a><a href="#schedule">時間案内</a><a href="#access">アクセス</a><a href="#contact">お問い合わせ</a></div>
+      </div>
+      <div class="footer-base"><span>主催：鎌足まつり実行委員会（地福寺・てらふる大阪・TERAFUL ほか）</span><span>© 2026 Kamatari Matsuri. / <span class="notice-inline" style="color:#ecd1b9">試作版</span></span></div>
+    </div>
+  </footer>
+</body>
+</html>
